@@ -1,7 +1,8 @@
-<div>Name: <input ng-model="greeting" type="text">
+<div>Nom: <input ng-model="userFilter.name" type="text">
+    Prénom: <input ng-model="userFilter.surname" type="text">
+    Identifiant: <input ng-model="userFilter.id" type="text">
 <h3>Liste des utilisateurs:</h3>
 <ul>
-<!--<li ng-repeat="user in filteredArray"> {{user.name}}, {{user.surname}}</li>-->
+<li ng-repeat="user in users | filter:userFilter"><a ng-href="#/users/{{user.id}}"> {{user.name}}, {{user.surname}} ({{user.id}})</a></li>
 </ul>
-    {{greeting}}
 </div>
