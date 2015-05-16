@@ -35,10 +35,14 @@ angular
         templateUrl: 'views/Users/show.html',
         controller: 'UsersCtrl'
       })
-      .when('/add', {
-        templateUrl: 'views/Users/add.html',
-        controller:'UsersCtrl'
-      })
+        .when('/add', {
+            templateUrl: '../views/add.html',
+            controller:'AddCtrl'
+        })
+        .when('/projects', {
+            templateUrl: 'views/Projects/list.html',
+            controller:'ProjectsCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });

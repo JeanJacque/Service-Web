@@ -1,0 +1,8 @@
+<div>Identifiant: <input ng-model="projectFilter.id" type="text">
+    Titre: <input ng-model="projectFilter.title" type="text">
+    Année: <input ng-model="projectFilter.year" type="text">
+    <h3>Liste des projets:</h3>
+    <ul>
+        <li ng-repeat="project in projects | filter:projectFilter">({{project.id}}) {{project.title}} <b>{{project.year}} </b>:<br /> {{project.description}} </li>
+    </ul>
+</div>

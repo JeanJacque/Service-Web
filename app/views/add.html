@@ -1,0 +1,16 @@
+<div><center>
+    <input type="radio" ng-model="type" nb-model = "project" value="project" /> Projet
+    <input type="radio" ng-model="type" nb-model = "user" value="user" /> Utilisateur<br />
+    </center>
+    <form ng-show="type == 'user'" novalidate class="simple-form">
+        Name: <input  type="text" ng-model="user.name" /><br />
+        Surname: <input type="text" ng-model="user.surname" /><br />
+        <input type="submit" ng-click="updateUser(user)" value="Ajouter" />
+    </form>
+    <form ng-show="type == 'project'" novalidate class="simple-form">
+        Titre: <input  type="text" ng-model="project.title" /><br />
+        Année: <input type="text" ng-model="project.year" /><br />
+        Description: <input type="text" ng-model="project.description" /><br />
+        <input type="submit" ng-click="updateProject(user)" value="Ajouter" />
+    </form>
+</div>
