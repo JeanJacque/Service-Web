@@ -23,18 +23,22 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/assignation', {
+        templateUrl: '../views/assignation.html',
+        controller: 'AssignationCtrl'
       })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
         controller: 'UsersCtrl'
       })
-      .when('/users/:userId', {
-        templateUrl: 'views/Users/show.html',
-        controller: 'UsersCtrl'
-      })
+        .when('/users/:userId', {
+            templateUrl: 'views/Users/show.html',
+            controller: 'UsersCtrl'
+        })
+        .when('/projects/:projectId', {
+            templateUrl: 'views/Projects/show.html',
+            controller: 'ProjectsCtrl'
+        })
         .when('/add', {
             templateUrl: '../views/add.html',
             controller:'AddCtrl'

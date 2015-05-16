@@ -1,8 +1,17 @@
 <div>
-<p>Nom: {{currentUser.name}}</p>
-    <p>Prénom: {{currentUser.surname}}</p>
-    <p>Identifiant: {{currentUser.id}}</p>
+    <p>Nom: {{currentUser.name}}</p>
+
+    <p>Prénom : {{currentUser.surname}}</p>
+
+    <p>Identifiant : {{currentUser.id}}</p>
+
     <p>Mail : {{currentUser.mail}}</p>
+
     <p>Website : {{currentUser.website}}</p>
-    <input type="submit" ng-click="remove(currentUser.id)" value="Supprimer" />
+
+    <p>Projets :<br />
+    <ul>
+    <li ng-repeat="project in currentUserProjects">Role : {{project.name}} Id : {{project.id}}</li>
+    </ul></p>
+    <input type="submit" ng-click="remove(currentUser.id)" value="Supprimer"/>
 </div>

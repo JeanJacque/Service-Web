@@ -3,6 +3,6 @@
     Année: <input ng-model="projectFilter.year" type="text">
     <h3>Liste des projets:</h3>
     <ul>
-        <li ng-repeat="project in projects | filter:projectFilter">({{project.id}}) {{project.title}} <b>{{project.year}} </b>:<br /> {{project.description}} </li>
+        <li ng-repeat="project in projects | filter:projectFilter"><a ng-href="#/projects/{{project.id}}">(<b>Id :</b> {{project.id}}, <b>Année :</b> {{project.year}}) {{project.title}} :<br /> {{project.description}}</a> </li>
     </ul>
 </div>

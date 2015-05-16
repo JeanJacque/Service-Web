@@ -20,4 +20,10 @@ angular.module('pooIhmExemplesApp')
                     $location.path('/users/' + data.data.id);
                 });
         };
+        $scope.updateProject = function (project) {
+            $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/', project)
+                .success(function (data) {
+                    $location.path('/projects/' + data.data.id);
+                });
+        };
     }]);

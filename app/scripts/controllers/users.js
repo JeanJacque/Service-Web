@@ -32,10 +32,18 @@ angular.module('pooIhmExemplesApp')
 
         };
 
+        $scope.getProjects = function(id) {
+
+
+
+        };
+
         $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
             .success(function (data) {
                 $scope.users = data.data;
             });
+
+
 
         if ($routeParams.userId) {
             $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
@@ -43,6 +51,12 @@ angular.module('pooIhmExemplesApp')
                     if (data.status == "success") {
                         $scope.currentUser = data.data;
                     }
+                });
+
+            $http.getProject('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + id + '/Roles')
+                .success(function (data) {
+                    $scope.currentUserProjects = data.data;
+
                 });
         }
     }]);
