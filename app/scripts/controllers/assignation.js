@@ -20,6 +20,11 @@ angular.module('pooIhmExemplesApp')
                 $scope.projects = data.data;
             });
 
+        $scope.selection = {
+            projects: ['zboub'],
+            users: []
+        };
+
         $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
             .success(function (data) {
                 $scope.users = data.data;
