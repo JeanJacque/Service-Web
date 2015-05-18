@@ -23,10 +23,6 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/assignation', {
-        templateUrl: '../views/assignation.html',
-        controller: 'AssignationCtrl'
-      })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
         controller: 'UsersCtrl'

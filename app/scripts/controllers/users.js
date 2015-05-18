@@ -8,7 +8,7 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('pooIhmExemplesApp')
-    .controller('UsersCtrl', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
+    .controller('UsersCtrl', ['$scope', '$http', '$routeParams', '$location', '$route', function ($scope, $http, $routeParams, $location, $route) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -32,17 +32,10 @@ angular.module('pooIhmExemplesApp')
 
         };
 
-        $scope.getProjects = function(id) {
-
-
-
-        };
-
         $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
             .success(function (data) {
                 $scope.users = data.data;
             });
-
 
 
         if ($routeParams.userId) {
@@ -53,7 +46,20 @@ angular.module('pooIhmExemplesApp')
                     }
                 });
 
-            $http.getProject('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + id + '/Roles')
+            $scope.assignation = function(project, newRole){
+                    var role = {name: newRole, UserId: $scope.currentUser.id, ProjectId:project.id};
+                    $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Roles/', role).success(function (data) {
+                        $route.reload();
+                    });
+
+            }
+
+            $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
+                .success(function (data) {
+                    $scope.projects = data.data;
+                });
+
+            $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Roles')
                 .success(function (data) {
                     $scope.currentUserProjects = data.data;
 

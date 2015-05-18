@@ -7,4 +7,14 @@
 
     <p>Description : {{currentProject.description}}</p>
 
+
+    <p>Projets :<br />
+    <ul>
+        <li ng-repeat="user in currentProjectUsers"><a ng-href="#/users/{{user.UserId}}">Id : {{user.UserId}}, Role : {{user.name}}</a></li>
+    </ul></p>
+    <input type="submit" ng-click="remove(currentProject.id)" value="Supprimer"/>
+    <p><br />Ajout de rôles :
+    <div ng-repeat="user in users"><input ng-model="userCheck" type="checkbox"> {{user.name}} <input ng-show="userCheck" ng-model="role" type="text">
+        <input type="submit" ng-show="userCheck" ng-click="assignation(user, role)" value="Ajouter"/> </div>
+    </p>
 </div>
